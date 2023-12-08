@@ -3,9 +3,8 @@
 </script>
 
 <div class="snap-y container grid grid-rows-2 m-auto gap-5 grid-flow-dense">
-	<CardList />
-	<CardList />
-	<CardList />
-	<CardList />
-	<CardList />
+	<CardList listIdentifier="alltimebest" />
+	<CardList listIdentifier="alltimebest" />
+	<CardList listIdentifier="alltimebest" />
+	<CardList listIdentifier="alltimebest" />
 </div>
