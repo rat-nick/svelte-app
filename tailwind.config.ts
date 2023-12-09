@@ -17,6 +17,9 @@ export default {
 		extend: {
 			minWidth: {
 				'1/2screen': '50vw'
+			},
+			fontFamily: {
+				poppins: ['Poppins', 'sans-serif']
 			}
 		}
 	},

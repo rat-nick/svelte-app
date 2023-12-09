@@ -1,21 +1,27 @@
 <script lang="ts">
 	import '../app.postcss';
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
+	import Search from '../components/Search.svelte';
 </script>
 
 <!-- App Shell -->
 <AppShell>
 	<svelte:fragment slot="header">
 		<!-- App Bar -->
-		<AppBar gridColumns='grid-cols-3' slotDefault='place-self-center' slotTrail='place-content-end'>
+		<AppBar
+			slotDefault="place-self-center"
+			slotTrail="place-content-end"
+			padding="p-2 md:p-3"
+		>
 			<svelte:fragment slot="lead">
-				<strong class="text-xl uppercase">ANI-REC</strong>
-			</svelte:fragment>
-			<svelte:fragment slot="default">
-				<input type="search" name="search" id="search" class="rounded-full ps-4 variant-filled" placeholder="Search anime...">
+				<div class="text-xl leading-4">
+					<span class="font-light ps-1.5 m-0">ANI</span>
+					<br />
+					<span class="font-extrabold text-secondary-400 p-0 m-0">REC</span>
+				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
-				
+				<Search />
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
