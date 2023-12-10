@@ -9,7 +9,7 @@
 	};
 </script>
 
-<div class="w-10 relative transition-all duration-300" class:expanded>
+<div class="w-10 relative transition-all duration-300 max-w-md" class:expanded>
 	<input
 		bind:this={searchInput}
 		on:focusout={toggleExpand}
@@ -35,6 +35,6 @@
 	@import 'tailwindcss/utilities.css';
 
 	.expanded {
-		@apply w-[75vw];
+		width: 75vw;
 	}
 </style>
