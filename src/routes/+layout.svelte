@@ -1,9 +1,13 @@
 <script lang="ts">
 	import '../app.postcss';
-	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
+	import { AppShell, AppBar, initializeStores } from '@skeletonlabs/skeleton';
 	import Search from '../components/Search.svelte';
+	import { Toast } from '@skeletonlabs/skeleton';
+
+	initializeStores();
 </script>
 
+<Toast />
 <!-- App Shell -->
 <AppShell>
 	<svelte:fragment slot="header">
