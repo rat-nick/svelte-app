@@ -1,27 +1,19 @@
 <script lang="ts">
+	import type { AnimeItem } from '../types/Item.type';
 	import AnimeCard from './AnimeCard.svelte';
-	export let listIdentifier: string;
-
-	const load = async (query: string) => {
-		const data = await fetch(`api/${query}`);
-		return data.json();
-	};
-
-	const promise = load(listIdentifier);
-
-	const placeholders = [1, 2, 3, 4];
+	export let data: AnimeItem[];
+	export let nPlaceholders: number = 4;
+	const placeholders = Array(nPlaceholders);
 </script>
 
-<div
-	class="flex flex-row flex-shrink-0 snap-start snap-x overflow-x-scroll overflow-y-hidden bg-secondary"
->
-	{#await promise}
-		{#each placeholders as ph, index}
+<div class="flex flex-shrink-0 snap-start snap-x overflow-auto">
+	{#if data?.length === 0}
+		{#each placeholders as ph}
 			<AnimeCard />
 		{/each}
-	{:then items}
-		{#each items as item (item.id)}
+	{:else}
+		{#each data as item (item.id)}
 			<AnimeCard {item} />
 		{/each}
-	{/await}
+	{/if}
 </div>

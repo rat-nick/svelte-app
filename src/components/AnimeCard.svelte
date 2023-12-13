@@ -6,6 +6,7 @@
 	import { initializeStores } from '@skeletonlabs/skeleton';
 	import { fade } from 'svelte/transition';
 	import type { ToastSettings } from '@skeletonlabs/skeleton';
+	import IconButton from './IconButton.svelte';
 	export let item: AnimeItem | null = null;
 
 	let ready: boolean = false;
@@ -22,8 +23,8 @@
 
 	const addToPrefered = () => {
 		if (item != null) {
+			item.preferred = true;
 			$preferedItems = [...$preferedItems, item];
-			isPrefered = !isPrefered;
 		}
 		toastStore.trigger(toastSettings);
 		console.log($preferedItems);
@@ -31,8 +32,8 @@
 
 	const removeFromPrefered = () => {
 		if (item != null) {
+			item.preferred = false;
 			$preferedItems = $preferedItems.filter((x) => x != item);
-			isPrefered = !isPrefered;
 		}
 		toastStore.trigger(toastSettings);
 		console.log($preferedItems);
@@ -52,10 +53,7 @@
 				<header
 					class="card-header shadow-text flex text-xl md:text-2xl top-0 absolute justify-between items-start w-full gap-3"
 				>
-					<div class="ms-3 mt-2">{item.title}</div>
-					<button class="btn btn-icon variant-soft-primary">
-						<i class="fa-info fa-solid"></i>
-					</button>
+					<div class="ms-3 mt-2 font-poppins">{item.title}</div>
 				</header>
 				<section class="p-3 bottom-0 left-0 items-start text-sm hidden sm:flex">
 					{item.synopsis}
@@ -68,20 +66,14 @@
 							</span>
 						{/each}
 					</div>
-					{#if !isPrefered}
-						<button
-							on:click={addToPrefered}
-							class="btn btn-icon h-auto variant-filled-primary rounded-full hover:scale-[1.2] aspect-square"
-						>
-							<i class="fa-solid fa-star text-lg"></i>
-						</button>
+					{#if !item.preferred}
+						<IconButton variant="success" on:click={addToPrefered}>
+							<i class="fa-solid fa-star"></i>
+						</IconButton>
 					{:else}
-						<button
-							on:click={removeFromPrefered}
-							class="btn btn-icon h-auto variant-filled-surface rounded-full hover:scale-[1.2] aspect-square"
-						>
-							<i class="fa-solid fa-x text-lg"></i>
-						</button>
+						<IconButton variant="error" on:click={removeFromPrefered}>
+							<i class="fa-solid fa-xmark"></i>
+						</IconButton>
 					{/if}
 				</footer>
 			</div>
