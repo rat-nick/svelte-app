@@ -41,7 +41,7 @@
 </script>
 
 <div
-	class="card snap-start relative rounded-xl flex flex-col flex-shrink-0 w-1/2 lg:w-1/3 xl:w-1/4 aspect-[2/3] overflow-clip"
+	class="card snap-start relative rounded-xl flex flex-col flex-shrink-0 aspect-[2/3] overflow-clip"
 	class:prefered={isPrefered}
 >
 	{#if item !== null && ready}

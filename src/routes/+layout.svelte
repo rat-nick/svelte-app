@@ -1,6 +1,11 @@
 <script lang="ts">
 	import '../app.postcss';
-	import { AppShell, AppBar, initializeStores } from '@skeletonlabs/skeleton';
+	import {
+		AppShell,
+		AppBar,
+		initializeStores,
+		autoModeWatcher
+	} from '@skeletonlabs/skeleton';
 	import { Toast } from '@skeletonlabs/skeleton';
 	import { Modal } from '@skeletonlabs/skeleton';
 	import { Drawer } from '@skeletonlabs/skeleton';
@@ -16,7 +21,8 @@
 	const openPreferences = () => {
 		const drawerSettings: DrawerSettings = {
 			id: 'preferrences',
-			position: 'top'
+			position: 'top',
+			height: 'auto'
 		};
 
 		drawerStore.open(drawerSettings);
@@ -25,7 +31,8 @@
 	const openRecommendations = () => {
 		const drawerSettings: DrawerSettings = {
 			id: 'recommendations',
-			position: 'bottom'
+			position: 'bottom',
+			height: 'auto'
 		};
 		drawerStore.open(drawerSettings);
 	};
@@ -37,7 +44,7 @@
 	{#if $drawerStore.id === 'preferrences'}
 		{#if $preferedItems.length === 0}
 			<div
-				class="flex flex-col justify-center items-center font-poppins text-xl h-full uppercase font-normal"
+				class="flex flex-col justify-center items-center font-poppins text-xl h-full uppercase font-normal min-h-[30vh]"
 			>
 				Add items to your
 				<span class="text-primary-500 font-bold"> preferrence list </span>
@@ -50,7 +57,7 @@
 	{:else if $drawerStore.id === 'recommendations'}
 		{#if $recommendedItems.length < 3}
 			<div
-				class="flex flex-col justify-center items-center font-poppins text-xl h-full uppercase font-normal"
+				class="flex flex-col justify-center items-center font-poppins text-xl h-full uppercase font-normal min-h-[30vh]"
 			>
 				Add {3 - $preferedItems.length} more items to your
 				<span class="text-primary-500 font-bold"> preferrence list </span>

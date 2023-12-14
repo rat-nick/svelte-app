@@ -6,7 +6,9 @@
 	const placeholders = Array(nPlaceholders);
 </script>
 
-<div class="flex flex-shrink-0 snap-start snap-x overflow-auto">
+<div
+	class="flex flex-shrink-0 snap-start snap-x overflow-auto h-[50vh] lg:h-[40vh]"
+>
 	{#if data?.length === 0}
 		{#each placeholders as ph}
 			<AnimeCard />
