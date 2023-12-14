@@ -10,8 +10,18 @@
 	});
 </script>
 
-<div class="snap-y container grid grid-rows-2 m-auto gap-5 mt-3">
+<div class="snap-y container flex flex-col m-auto justify-center gap-5 mt-3">
+	<div
+		class="font-poppins text-2xl md:text-4xl text-center uppercase font-extralight"
+	>
+		Most popular
+	</div>
 	<CardList data={$mostPopularItems} />
+	<div
+		class="font-poppins text-2xl md:text-4xl text-center uppercase font-extralight"
+	>
+		Recent additions
+	</div>
 	<CardList data={$mostPopularItems} />
 	<CardList data={$mostPopularItems} />
 	<CardList data={$mostPopularItems} />
