@@ -13,7 +13,8 @@
 	let isPrefered: boolean = false;
 	let toastSettings: ToastSettings;
 	$: toastSettings = {
-		message: (!isPrefered ? 'Added to' : 'Removed from') + ' preference list',
+		message:
+			(!item?.preferred ? 'Added to' : 'Removed from') + ' preference list',
 		timeout: 3000
 	};
 	const toastStore = getToastStore();
